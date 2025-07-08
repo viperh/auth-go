@@ -14,22 +14,17 @@ func JwtMiddleware(secretString string) gin.HandlerFunc {
 			ctx.AbortWithStatus(http.StatusUnauthorized)
 			return
 		}
-
 		tokenStr := strings.TrimPrefix(authHeader, "Bearer ")
-
 		token, err := jwt.Parse(tokenStr, func(token *jwt.Token) (interface{}, error) {
 			return []byte(secretString), nil
 		})
-
 		if err != nil {
 			ctx.AbortWithStatus(http.StatusUnauthorized)
 			return
 		}
-
 		if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
 			ctx.Set("claims", claims)
 		}
-
 		ctx.Next()
 	}
 }

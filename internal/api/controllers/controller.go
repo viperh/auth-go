@@ -52,7 +52,7 @@ func (c *Controller) Login(ctx *gin.Context) {
 
 	dbUser, err := c.Provider.GetUserByEmail(loginReq.Username)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
+		ctx.JSON(http.StatusNotFound, gin.H{"message": err.Error()})
 		return
 	}
 
