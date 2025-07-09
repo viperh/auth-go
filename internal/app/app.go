@@ -13,7 +13,7 @@ import (
 type App struct {
 	Controller *controllers.Controller
 	Config     *config.Config
-	Provider   *provider.Provider
+	Provider   *provider.Postgres
 	Engine     *gin.Engine
 }
 

@@ -16,12 +16,12 @@ import (
 )
 
 type Controller struct {
-	Provider   *provider.Provider
+	Provider   *provider.Postgres
 	Statistics *statistics.Statistics
 	Config     *config.Config
 }
 
-func New(provider *provider.Provider, statistics *statistics.Statistics, cfg *config.Config) *Controller {
+func New(provider *provider.Postgres, statistics *statistics.Statistics, cfg *config.Config) *Controller {
 	return &Controller{
 		Provider:   provider,
 		Statistics: statistics,
