@@ -1,4 +1,4 @@
-# Project Name
+# Auth Service
 
 Go auth service with jwt authentication and authorization.
 
